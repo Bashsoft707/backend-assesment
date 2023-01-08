@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 module.exports = {
   development: {
     client: 'pg',

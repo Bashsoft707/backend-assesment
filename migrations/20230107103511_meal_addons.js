@@ -6,9 +6,9 @@ exports.up = function (knex) {
   return knex.schema.createTable('meal_addons', function (table) {
     table.increments('id').primary();
     table.string('name').notNullable();
-    table.string('description').notNullable();
+    table.string('description');
     table.integer('price').notNullable();
-    table.string('category').notNullable();
+    table.string('category');
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });

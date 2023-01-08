@@ -1,11 +1,11 @@
 import { Global, Module } from '@nestjs/common';
 import Knex from 'knex';
 import { Model } from 'objection';
-import { MealAddonCategories } from './models/meal_addon-categories.model';
-import { MealAddons } from './models/meal_addons.model';
+import { MealAddonCategoriesModel } from './models/meal_addon-categories.model';
+import { MealAddonsModel } from './models/meal_addons.model';
 import { UserModel } from './models/user.model';
 
-const models = [UserModel, MealAddons, MealAddonCategories];
+const models = [UserModel, MealAddonsModel, MealAddonCategoriesModel];
 
 const modelProviders = models.map((model) => ({
   provide: model.name,
@@ -22,7 +22,7 @@ const providers = [
         connection: {
           host: process.env.DATABASE_HOST || 'localhost',
           user: process.env.DATABASE_USER,
-          password: process.env.DATABASE_PASSWORD,
+          password: 'softcom1972',
           database: process.env.DATABASE_NAME,
         },
       });

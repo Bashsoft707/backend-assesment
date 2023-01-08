@@ -14,6 +14,7 @@ export class UserService {
         .query()
         .insert(createUserDto)
         .returning('*');
+        
       return user;
     } catch (err) {
       throw new HttpException(err.message, HttpStatus.INTERNAL_SERVER_ERROR, {
