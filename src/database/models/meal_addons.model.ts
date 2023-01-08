@@ -1,6 +1,4 @@
-import { Model } from 'objection';
 import { BaseModel } from './base.model';
-import { MealAddonCategoriesModel } from './meal_addon-categories.model';
 
 export class MealAddonsModel extends BaseModel {
   static get tableName() {
