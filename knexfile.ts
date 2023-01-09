@@ -10,20 +10,20 @@ module.exports = {
       database: process.env.DATABASE_NAME,
     },
     migrations: {
-      directory: './migrations',
+      directory: './src/database/migrations',
     },
     seeds: {
-      directory: './seeds',
+      directory: './src/database/seeds',
     },
   },
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: './migrations',
+      directory: './src/database/migrations',
     },
     seeds: {
-      directory: './seeds',
+      directory: './src/database/seeds',
     },
   },
 };

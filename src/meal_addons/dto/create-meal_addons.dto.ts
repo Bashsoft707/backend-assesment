@@ -1,4 +1,10 @@
-import { IsEmpty, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsEmpty,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class CreateMealAddonsDto {
   @IsString()
@@ -6,6 +12,7 @@ export class CreateMealAddonsDto {
   name: string;
 
   @IsString()
+  @IsOptional()
   description: string;
 
   @IsNumber()
@@ -13,5 +20,6 @@ export class CreateMealAddonsDto {
   price: number;
 
   @IsString()
+  @IsOptional()
   category: string;
 }

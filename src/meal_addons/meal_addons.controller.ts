@@ -6,11 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { MealAddonsService } from './meal_addons.service';
 import { CreateMealAddonsDto } from './dto/create-meal_addons.dto';
 import { UpdateMealAddonsDto } from './dto/update-meal_addons.dto';
+import { AuthGuard } from 'src/auth/guard/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('brands/:brandId/addons')
 export class MealAddonsController {
   constructor(private readonly mealAddonsService: MealAddonsService) {}
@@ -25,21 +28,21 @@ export class MealAddonsController {
     return this.mealAddonsService.findAll();
   }
 
-  @Get(':id')
-  findById(@Param('id') id: string) {
-    return this.mealAddonsService.findById(+id);
+  @Get(':addonsId')
+  findById(@Param('addonsId') addonsId: string) {
+    return this.mealAddonsService.findById(+addonsId);
   }
 
-  @Patch(':id')
+  @Patch(':addonsId')
   update(
-    @Param('id') id: string,
+    @Param('addonsId') addonsId: string,
     @Body() updateMealAddonsDto: UpdateMealAddonsDto,
   ) {
-    return this.mealAddonsService.update(+id, updateMealAddonsDto);
+    return this.mealAddonsService.update(+addonsId, updateMealAddonsDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.mealAddonsService.remove(+id);
+  @Delete(':addonsId')
+  remove(@Param('addonsId') addonsId: string) {
+    return this.mealAddonsService.remove(+addonsId);
   }
 }

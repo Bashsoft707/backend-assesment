@@ -22,9 +22,10 @@ const providers = [
         connection: {
           host: process.env.DATABASE_HOST || 'localhost',
           user: process.env.DATABASE_USER,
-          password: 'softcom1972',
+          password: process.env.DATABASE_PASSWORD,
           database: process.env.DATABASE_NAME,
         },
+        debug: true,
       });
       Model.knex(knex);
       return knex;
