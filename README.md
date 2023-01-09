@@ -58,6 +58,14 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+```bash
+#  Seed data and migration
+$  npm run migrate && npm run seed
+```
+
+## There are 3 user data in the database with one having the role of and admin, 
+## see email and password for each user in the seed folder (src/database/seed/user.ts)
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
