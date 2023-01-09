@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Param } from '@nestjs/common';
 import { MealAddonCategoriesService } from './meal_addon-categories.service';
 import { CreateMealAddonCategoryDto } from './dto/create-meal_addon-category.dto';
 import { AuthGuard } from 'src/auth/guard/auth.guard';
@@ -18,5 +18,10 @@ export class MealAddonCategoriesController {
   @Get()
   find() {
     return this.mealAddonCategoriesService.findAll();
+  }
+
+  @Get(':name')
+  findCategory(@Param('name') name: string) {
+    return this.mealAddonCategoriesService.findOne(name);
   }
 }

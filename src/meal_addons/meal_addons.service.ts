@@ -4,14 +4,27 @@ import { ModelClass } from 'objection';
 import { MealAddonsModel } from 'src/database/models/meal_addons.model';
 import { CreateMealAddonsDto } from './dto/create-meal_addons.dto';
 import { UpdateMealAddonsDto } from './dto/update-meal_addons.dto';
+import { MealAddonCategoriesModel } from 'src/database/models/meal_addon-categories.model';
+import { MealAddonCategoriesService } from 'src/meal_addon-categories/meal_addon-categories.service';
 
 export class MealAddonsService {
   constructor(
     @Inject('MealAddonsModel') private modelClass: ModelClass<MealAddonsModel>,
+    private categoryService: MealAddonCategoriesService,
   ) {}
 
   async create(createMealAddonsDto: CreateMealAddonsDto) {
-    console.log(createMealAddonsDto);
+    const { category } = createMealAddonsDto;
+    let categoryExists;
+
+    if (category) {
+      categoryExists = await this.categoryService.findOne(category);
+    }
+
+    if (category && !categoryExists) {
+      throw new Error('Category does not exists');
+    }
+
     try {
       const mealAddons = await this.modelClass
         .query()

@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { ModelClass } from 'objection';
 import { UserModel } from 'src/database/models/user.model';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
+import { CreateUserDto } from 'src/auth/dto/create-user.dto';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
 import { signToken } from 'src/auth/utils/jwt.utils';

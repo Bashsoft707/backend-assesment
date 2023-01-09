@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { MealAddonsService } from './meal_addons.service';
 import { CreateMealAddonsDto } from './dto/create-meal_addons.dto';
@@ -29,8 +30,10 @@ export class MealAddonsController {
   }
 
   @Get(':addonsId')
-  findById(@Param('addonsId') addonsId: string) {
-    return this.mealAddonsService.findById(+addonsId);
+  async findById(@Param('addonsId', new ParseIntPipe()) addonsId: string) {
+    const mealAdon = await this.mealAddonsService.findById(+addonsId);
+    // await mealAdon.$loadRelated('[category]');
+    return mealAdon;
   }
 
   @Patch(':addonsId')

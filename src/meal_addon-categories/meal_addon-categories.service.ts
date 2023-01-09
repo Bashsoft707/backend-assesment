@@ -11,7 +11,7 @@ export class MealAddonCategoriesService {
     private modelClass: ModelClass<MealAddonCategoriesModel>,
   ) {}
 
-  async create(createMealAddonCategoryDto: CreateMealAddonCategoryDto) {
+  async create(createMealAddonCategoryDto: CreateMealAddonCategoryDto) {    
     try {
       const category = await this.modelClass
         .query()
@@ -27,6 +27,10 @@ export class MealAddonCategoriesService {
   }
 
   findAll() {
-    return this.modelClass.query()
+    return this.modelClass.query();
+  }
+
+  findOne(name: string) {
+    return this.modelClass.query().where('name', name).first();
   }
 }
