@@ -1,3 +1,4 @@
+import { Model } from 'objection';
 import { BaseModel } from './base.model';
 import { MealAddonCategoriesModel } from './meal_addon-categories.model';
 
@@ -13,8 +14,8 @@ export class MealAddonsModel extends BaseModel {
 
   static get relationMappings() {
     return {
-      meal_addon_categories: {
-        relation: BaseModel.HasOneRelation,
+      'meal_addons': {
+        relation: Model.BelongsToOneRelation,
         modelClass: MealAddonCategoriesModel,
         join: {
           from: 'meal_addons.category',

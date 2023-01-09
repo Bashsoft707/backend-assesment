@@ -25,4 +25,8 @@ export class MealAddonCategoriesService {
       });
     }
   }
+
+  findAll() {
+    return this.modelClass.query()
+  }
 }

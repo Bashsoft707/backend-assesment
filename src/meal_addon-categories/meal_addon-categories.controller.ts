@@ -1,13 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { MealAddonCategoriesService } from './meal_addon-categories.service';
 import { CreateMealAddonCategoryDto } from './dto/create-meal_addon-category.dto';
 import { AuthGuard } from 'src/auth/guard/auth.guard';
@@ -22,5 +13,10 @@ export class MealAddonCategoriesController {
   @Post()
   create(@Body() createMealAddonCategoryDto: CreateMealAddonCategoryDto) {
     return this.mealAddonCategoriesService.create(createMealAddonCategoryDto);
+  }
+
+  @Get()
+  find() {
+    return this.mealAddonCategoriesService.findAll();
   }
 }
