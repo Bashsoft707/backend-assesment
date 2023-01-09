@@ -63,6 +63,9 @@ $ npm run test:cov
 $  npm run migrate && npm run seed
 ```
 
+## Link to Postman Documentation
+- Docs: https://documenter.getpostman.com/view/17376840/2s8Z76uTuJ
+
 ## There are 3 user data in the database with one having the role of and admin, 
 ## see email and password for each user in the seed folder (src/database/seed/user.ts)
 
